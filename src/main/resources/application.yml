@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    url: "jdbc:postgresql://127.0.0.1:5432/tasks"
+    username: "root"
+    password: "root"
+  liquibase:
+    url: "${spring.datasource.url}"
+    user: "${spring.datasource.username}"
+    password: "${spring.datasource.password}"
+    change-log: "classpath:/db/changelog-master.xml"
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+server:
+  servlet:
+    context-path: /api/v1
